@@ -59,17 +59,29 @@ std::string fruta_1;
   std::cin>>confirmar_1;
   std::cout<<""<<std::endl;
 
-  std::string a;
-  std::string b;
-  std::string c;
+  int frecuencia_1;
   std::cout<<"Por favor seleccione del siguiente menu la frecuencia con que usted consume esas frutas"<<std::endl;
-  std::cout<<"a. Muy frecuente"<<std::endl;
-  std::cout<<"b. No muy frecuente"<<std::endl;
-  std::cout<<"c. Casi nunca las consumo"<<std::endl;
-  std::cin>>a;
-  std::cin>>b;
-  std::cin>>c;
-  std::cout<<a<<b<<c<<"es la opción seleccionada por usted?"<<std::endl;
+  std::cout<<"1. Muy frecuente"<<std::endl;
+  std::cout<<"2. No muy frecuente"<<std::endl;
+  std::cout<<"3. Casi nunca las consumo"<<std::endl;
+  std::cin >> frecuencia_1; 
+  std::string frecuencia_2;
+
+  switch (frecuencia_1){
+    case 1: frecuencia_2 = "Muy frecuente";
+    break;
+    case 2: frecuencia_2 = "No muy frecuente";
+    break;
+    case 3: frecuencia_2 = "Casi nunca las consumo";
+      break;
+       default: frecuencia_2 = "Día equivocado";
+      }
+  std::cin>>confirmar_1;
+  
+  std::string confirmar_3;
+  std::cout<< frecuencia_2 << " "<<"es la opción seleccionada por usted? por favor escriba si o no"<<std::endl;
+  std::cin >> confirmar_3;
+  std::cout<<""<<std::endl;
   
   std::string confirmar_2;  
 std::cout << "¿Desea ver el formulario para confirmar? por favor escriba si o no y oprima la tecla enter" <<std::endl;
