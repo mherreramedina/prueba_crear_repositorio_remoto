@@ -13,11 +13,13 @@ int main() {
   // se crea bucle para que entienda hasta cual número debe cálcular los multiplos
   {
     if (busqueda_multiplos % primer_numero_seleccionado == 0 || busqueda_multiplos % segundo_numero_seleccionado==0){
-      // función para calcular los multiplos del primer número
+      // función para calcular los multiplos 
                  int numero_actual=busqueda_multiplos;
         sumatoria=sumatoria+numero_actual;
+      //suma los multiplos de ambos números
       }      
     }
    std::cout << sumatoria<< std::endl;
+  //muestra el valor acumulado
   return 0;
 }
