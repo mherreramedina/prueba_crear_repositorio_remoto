@@ -4,29 +4,25 @@
 
 double velx(int vel, int angulo); // calcula la velocidad en x
 double vely(int vel, int angulo); // calcula la velocidad en y
-double posic_x(double velx, double const_b, double pos_ini_X,
-               double t); // calcula la posición en x
-double posic_y(double vely, double const_b, double pos_ini_Y,
-               double t); // calcula la posición en y
-double vel_inst_x(double velx, double const_b, double t); //calcula la velocidad instantanea en x
-double vel_inst_y(double vy, double const_b, double t);//calcula la velocidad instantanea en y
+double posic_x(double velx, double const_b, double pos_ini_X, double t); // calcula la posición en x
+double posic_y(double vely, double const_b, double pos_ini_Y, double t); // calcula la posición en y
+double vel_inst_x(double velx, double const_b, double t); // calcula la velocidad instantanea en x
+double vel_inst_y(double vy, double const_b, double t); // calcula la velocidad instantanea en y
 
 int main() {
   int vel = 70, angulo = 25;
   double const_b = 0.01, pos_ini_X = 0, pos_ini_Y = 0, t = 0;
   double vx = velx(vel, angulo);
   double vy = vely(vel, angulo);
-
-  //std::cout.precision(4);
-  //std::cout.setf(std::ios::scientific);
-  
-  std::cout << " t \t\tposición en x \t\t\t posición en y \t\t\t velocidad en x \t\t\t velocidad en y \n";
+  std::cout.precision(4);
+  std::cout.setf(std::ios::scientific);
+  std::cout << " t \t\t posición en x \t\t\t posición en y \t\t\t velocidad en x \t\t\t velocidad en y \n";
   for (t = 0; t <= 6; t = t + 0.1) {
     double px = posic_x(vx, const_b, pos_ini_X, t);
     double py = posic_y(vy, const_b, pos_ini_Y, t);
-    double vix = vel_inst_x( vx, const_b, t);
-    double viy=vel_inst_y(vy,const_b, t);
-    std::cout << t << "\t\t\t" << px << "\t\t\t\t" << py << "\t\t\t\t"<< vix<<"\t\t\t\t"<<viy<<"\n";
+    double vix = vel_inst_x(vx, const_b, t);
+    double viy = vel_inst_y(vy, const_b, t);
+    std::cout << t << "\t\t\t" << px << "\t\t\t\t" << py << "\t\t\t\t" << vix << "\t\t\t\t" << viy << "\n";
   }
   return 0;
 }
@@ -55,12 +51,13 @@ double posic_y(double vy, double const_b, double pos_ini_Y, double t) {
   return posic_y;
 }
 // función para calular la velocidad instantanea en x
-double vel_inst_x(double vx, double const_b, double t){
-  double vel_inst_x=vx * exp(-const_b * t);
+double vel_inst_x(double vx, double const_b, double t) {
+  double vel_inst_x = vx * exp(-const_b * t);
   return vel_inst_x;
 }
 // función para calular la velocidad instantanea en y
-double vel_inst_y(double vy, double const_b, double t){
-  double vel_inst_y=((9.81 / const_b) + vy)*(exp(-const_b * t))-(9.81/const_b);
+double vel_inst_y(double vy, double const_b, double t) {
+  double vel_inst_y =
+      ((9.81 / const_b) + vy) * (exp(-const_b * t)) - (9.81 / const_b);
   return vel_inst_y;
 }
